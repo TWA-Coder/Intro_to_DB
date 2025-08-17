@@ -6,7 +6,7 @@ from mysql.connector import errorcode
 DB_HOST = "localhost"
 DB_USER = "your_username"
 DB_PASSWORD = "your_password"
-DATABASE_NAME = "alx_book_store"
+alx_book_store = "alx_book_store"
 
 def create_alx_book_store_db():
     """
@@ -26,21 +26,12 @@ def create_alx_book_store_db():
         
         # SQL statement to create the database if it does not exist
         # Using "CREATE DATABASE IF NOT EXISTS" handles the requirement of not failing if it already exists.
-        sql_query = f"CREATE DATABASE IF NOT EXISTS {DATABASE_NAME}"
+        sql_query = f"CREATE DATABASE IF NOT EXISTS {alx_book_store}"
         
         db_cursor.execute(sql_query)
         
-        # Check for warnings to see if the database was actually created or already existed
-        # The `execute` method for a "CREATE IF NOT EXISTS" query will return a warning if the database exists.
-        # We can check the cursor's `with_rows` attribute, but since we are not allowed to use SELECT or SHOW,
-        # we can rely on the fact that if no exception is raised, the command was successful.
-        # To provide a more specific message, we can get the warnings.
-        
-        # Note: The `warnings` attribute is a list of tuples (warning_code, warning_message)
-        # However, to be fully compliant with the "no SELECT or SHOW" rule, we'll
-        # just assume success if no error is raised, and the CREATE IF NOT EXISTS handles the idempotency.
-        # The prompt requires a success message, so we'll print it.
-        print(f"Database '{DATABASE_NAME}' created successfully!")
+    
+        print(f"Database '{alx_book_store}' created successfully!")
         
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
