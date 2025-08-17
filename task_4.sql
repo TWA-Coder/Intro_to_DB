@@ -1,9 +1,7 @@
 
 USE alx_book_store;
 
--- Retrieve the full description of the 'Books' table
--- by querying the INFORMATION_SCHEMA.COLUMNS table.
--- This approach is used because DESCRIBE and EXPLAIN are not allowed.
+
 SELECT
     COLUMN_NAME,    -- The name of the column
     COLUMN_TYPE,    -- The data type and length/precision of the column
